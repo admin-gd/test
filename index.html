@@ -1,3 +1,18 @@
+<script>
+const container = document.querySelector('.ribbon-container');
+
+function createRibbon() {
+  const ribbon = document.createElement('div');
+  ribbon.classList.add('ribbon');
+  ribbon.style.left = `${Math.random() * 100}%`;
+  container.appendChild(ribbon);
+  setTimeout(() => {
+    ribbon.remove();
+  }, 5000); // remove ribbon after animation ends
+}
+
+setInterval(createRibbon, 1000); // create new ribbons every second
+</script>
 <style>
 .ribbon-container {
   position: fixed;
@@ -28,19 +43,5 @@
   }
 }
 </style>
-<script>
-const container = document.querySelector('.ribbon-container');
 
-function createRibbon() {
-  const ribbon = document.createElement('div');
-  ribbon.classList.add('ribbon');
-  ribbon.style.left = `${Math.random() * 100}%`;
-  container.appendChild(ribbon);
-  setTimeout(() => {
-    ribbon.remove();
-  }, 5000); // remove ribbon after animation ends
-}
-
-setInterval(createRibbon, 1000); // create new ribbons every second
-</script>
 <div class="ribbon-container"></div>
