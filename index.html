@@ -1,33 +1,46 @@
 <style>
 .ribbon-container {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .ribbon {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: gold;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-  transform: rotate(45deg);
+  top: -20px;
+  width: 100px;
+  height: 20px;
+  background-color: #f00; /* set your desired color */
+  transform: rotate(-45deg);
+  animation: fly 5s linear infinite;
 }
 
-.ribbon span {
-  display: block;
-  transform: rotate(-45deg);
+@keyframes fly {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 100%;
+    top: 100%;
+  }
 }
 </style>
 <script>
-const ribbon = document.querySelector('.ribbon');
+const container = document.querySelector('.ribbon-container');
 
-ribbon.addEventListener('click', () => {
-  alert('Congratulations!');
-});
+function createRibbon() {
+  const ribbon = document.createElement('div');
+  ribbon.classList.add('ribbon');
+  ribbon.style.left = `${Math.random() * 100}%`;
+  container.appendChild(ribbon);
+  setTimeout(() => {
+    ribbon.remove();
+  }, 5000); // remove ribbon after animation ends
+}
+
+setInterval(createRibbon, 1000); // create new ribbons every second
 </script>
-<div class="ribbon-container">
-  <div class="ribbon">
-    <span>Celebration Ribbon</span>
-  </div>
-</div>
+<div class="ribbon-container"></div>
