@@ -1,0 +1,33 @@
+<style>
+.ribbon-container {
+  position: relative;
+}
+
+.ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: gold;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  transform: rotate(45deg);
+}
+
+.ribbon span {
+  display: block;
+  transform: rotate(-45deg);
+}
+</style>
+<script>
+const ribbon = document.querySelector('.ribbon');
+
+ribbon.addEventListener('click', () => {
+  alert('Congratulations!');
+});
+</script>
+<div class="ribbon-container">
+  <div class="ribbon">
+    <span>Celebration Ribbon</span>
+  </div>
+</div>
